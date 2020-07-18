@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { withStyles } from '@material-ui/core/styles';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { login } from '../../redux/action';
-import { auth } from '../../utils/network';
+import { auth, getUserInfo } from '../../utils/network';
 
 import styles from './styles.module.scss'
 
@@ -101,11 +101,13 @@ export default connect(null, { loginAction: login })(withFormik({
 		setSubmitting(true);
 		const authRes = JSON.parse(await auth(login, password));
 		if (authRes.accessToken) {
-			loginAction({id: 1, login, token: authRes.accessToken})
+			const userInfo = JSON.parse(await getUserInfo(login))[0];
+			setSubmitting(false);
+			loginAction({id: userInfo.id, login, token: authRes.accessToken, firstname: userInfo.firstname, lastname: userInfo.lastname })
 		} else {
 			setFieldError('submit', 'Неверные логин или пароль');
+			setSubmitting(false);
 		}
-		setSubmitting(false);
 	},
 	validationSchema: AuthSchema
 })(AuthForm));

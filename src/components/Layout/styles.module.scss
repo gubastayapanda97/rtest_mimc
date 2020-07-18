@@ -7,3 +7,9 @@
 	width: calc(100vw - 200px) !important;
 	overflow: hidden;
 }
+
+.header {
+	display: flex;
+	justify-content: flex-end;
+	margin: 10px;
+}

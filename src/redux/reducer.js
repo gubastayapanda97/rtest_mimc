@@ -5,17 +5,21 @@ const initialState = {
     id: localStorage.getItem('id'),
 	login: localStorage.getItem('login'),
 	token: localStorage.getItem('token'),
-    authStatus: localStorage.getItem('authStatus')
+	firstname: localStorage.getItem('firstname'),
+	lastname: localStorage.getItem('lastname'),
+	authStatus: localStorage.getItem('authStatus')
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 		case LOGIN:
-			const { id, login, token } = action.data;
+			const { id, login, token, firstname, lastname } = action.data;
 			return {
 				id,
 				login,
 				token,
+				firstname,
+				lastname,
 				authStatus: true
 			};
 		case LOGOUT:
@@ -23,6 +27,8 @@ const reducer = (state = initialState, action) => {
 				id: null,
 				login: null,
 				token: null,
+				firstname: null,
+				lastname: null,
 				authStatus: false
 			};
         default: return state
