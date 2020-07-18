@@ -1,30 +1,30 @@
 [
 	{
 		"title": "Задачи и работы",
-		"link": "/home"
+		"link": "/tasks"
 	},
 	{
 		"title": "Проекты",
-		"link": "/"
+		"link": "/projects"
 	},
 	{
 		"title": "Календарь",
-		"link": "/"
+		"link": "/calendar"
 	},
 	{
 		"title": "Возможности",
 		"subItems": [
 			{
 				"title": "Возможности 1",
-				"link": "/"
+				"link": "/opportunities1"
 			},
 			{
 				"title": "Возможности 2",
-				"link": "/"
+				"link": "/opportunities2"
 			},
 			{
 				"title": "Возможности 3",
-				"link": "/"
+				"link": "/opportunities3"
 			}
 		]
 	}
