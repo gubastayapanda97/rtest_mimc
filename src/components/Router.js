@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Home, Auth } from '../containers';
+import { MainMenu } from './';
 
 const Router = ({ authStatus }) => {
 	const defaultPath = authStatus ? '/home' : '/auth';
 	return (
 		<BrowserRouter>
-			{/* <MainMenu authorized={isAuthorized()} menuItems={menuItems.filter(item => !item.hidden)} /> */}
+			<MainMenu />
 			<Switch>
 				<Route 
 					path='/home'

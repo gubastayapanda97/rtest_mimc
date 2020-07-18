@@ -1,0 +1,10 @@
+.layout__container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	/* height: 100vh !important; */
+	left: 200px;
+	width: calc(100vw - 70px) !important;
+	overflow: hidden;
+}

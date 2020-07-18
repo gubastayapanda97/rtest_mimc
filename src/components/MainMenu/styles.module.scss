@@ -1,0 +1,37 @@
+.menu {
+	top: 0;
+    left: 0;
+    height: 100vh;
+    background: #34116e;
+    overflow: hidden;
+    transition: 0.4s width;
+    z-index: 200;
+    position: fixed;
+	box-shadow: 2px 0 4px rgba(25, 34, 44, 0.25);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    a {
+        margin: 5px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+    .link {
+        cursor: pointer;
+        margin: 5px 10px;
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .linkTitle {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .subLink {
+        margin: 0 0 0 20px;
+    }
+}
