@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import { withStyles } from '@material-ui/core/styles';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { login } from '../../redux/action';
+import { auth } from '../../utils/network';
 
 import styles from './styles.module.scss'
 
@@ -36,7 +37,7 @@ const AuthSchema = Yup.object().shape({
 	password: Yup.string().required('Не заполнено обязательное поле')
 });
 
-const AuthForm = ({ setErrorMsg, setAlertVisible, values, children, setFieldValue, isSubmitting }) => {
+const AuthForm = ({ setErrorMsg, setAlertVisible, values, errors, children, setFieldValue, isSubmitting }) => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	return (
@@ -79,6 +80,7 @@ const AuthForm = ({ setErrorMsg, setAlertVisible, values, children, setFieldValu
 				}
 				label="Запомнить пароль"
 			/>
+			<div className={styles.errorText}>{errors.submit}</div>
 			<ColorButton disabled={isSubmitting} variant="contained" type="submit">
 				Войти
 			</ColorButton>
@@ -94,13 +96,14 @@ export default connect(null, { loginAction: login })(withFormik({
 		remember: props.remember || false,
 		loginAction: props.loginAction
 	}),
-	handleSubmit: async (values, { props, setErrors, setSubmitting, resetForm }) => {
-		console.log(values)
+	handleSubmit: async (values, { props, errors, setErrors, setFieldError, setSubmitting, resetForm }) => {
 		const { login, password, remember, loginAction } = values;
-		const { history, setErrorMsg, setAlertVisible } = props;
 		setSubmitting(true);
-		if (login === 'admin' && password === 'admin') {
-			loginAction({id: 1, login})
+		const authRes = JSON.parse(await auth(login, password));
+		if (authRes.accessToken) {
+			loginAction({id: 1, login, token: authRes.accessToken})
+		} else {
+			setFieldError('submit', 'Неверные логин или пароль');
 		}
 		setSubmitting(false);
 	},

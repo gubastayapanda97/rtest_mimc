@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "email": "Admin@email.test",
+      "password": "$2a$10$0Uq/2G97dlD4SiaEdW8A4eraFDNcgCysvubupGZQVbFcue7s9V8pO",
+      "firstname": "Admin",
+      "lastname": "Admin",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
