@@ -1,35 +1,39 @@
 import React from 'react';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
-import {Home, Auth} from '../containers';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Home, Auth } from '../containers';
 
-const Router = () => {
-	const auth = false;
-	const defaultPath = auth ? '/home' : '/auth';
-
+const Router = ({ authStatus }) => {
+	const defaultPath = authStatus ? '/home' : '/auth';
 	return (
-		<HashRouter>
+		<BrowserRouter>
 			{/* <MainMenu authorized={isAuthorized()} menuItems={menuItems.filter(item => !item.hidden)} /> */}
 			<Switch>
 				<Route 
 					path='/home'
 					render={props => (
-						(auth === true)
-							? React.createElement(Home, {...props})
+						authStatus
+							? <Home {...props}/>
 							: <Redirect to="/auth" />
 					)}
 				/>
 				<Route 
 					path='/auth' 
 					render={props => (
-						(auth === false)
-							? React.createElement(Auth, {...props})
-							: <Redirect to={defaultPath} />
+						authStatus
+							? <Redirect to={defaultPath} />
+							: <Auth {...props}/>
 					)}
 				/>
 				<Redirect from="/" to={defaultPath} />
 			</Switch>
-		</HashRouter>
+		</BrowserRouter>
 	);
 };
 
-export default Router;
+export default connect(
+	state => ({
+		authStatus: state.authStatus
+	}),
+	{}
+)(Router);

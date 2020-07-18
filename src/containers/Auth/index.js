@@ -1,9 +1,13 @@
 import React from 'react';
 import AuthForm from './AuthForm';
 
+import styles from './styles.module.scss'
+
 const Auth = () => {
 	return (
-		<AuthForm />
+		<div className={styles.container}>
+			<AuthForm />
+		</div>
 	);
 };
 

@@ -3,9 +3,13 @@ import { withFormik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 import { IconButton, FormControlLabel, Checkbox } from '@material-ui/core';
 import MaterialButton from '@material-ui/core/Button';
+import { connect } from 'react-redux';
 import * as Yup from 'yup';
 import { withStyles } from '@material-ui/core/styles';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { login } from '../../redux/action';
+
+import styles from './styles.module.scss'
 
 const RememberCheckbox = withStyles({
 	root: {
@@ -14,7 +18,18 @@ const RememberCheckbox = withStyles({
 	  },
 	},
 	checked: {},
-  })((props) => <Checkbox color="default" {...props} />);
+})((props) => <Checkbox color="default" {...props} />);
+
+  
+const ColorButton = withStyles(() => ({
+	root: {
+		color: '#fff',
+		backgroundColor: '#b42dcb',
+		'&:hover': {
+			backgroundColor: '#621e73',
+		},
+	},
+}))(MaterialButton);
 
 const AuthSchema = Yup.object().shape({
 	login: Yup.string().required('Не заполнено обязательное поле'),
@@ -25,8 +40,8 @@ const AuthForm = ({ setErrorMsg, setAlertVisible, values, children, setFieldValu
 	const [showPassword, setShowPassword] = useState(false);
 
 	return (
-		<Form>
-			<div>Логин</div>
+		<Form className={styles.form}>
+			<div className={styles.fieldLabel}>Логин</div>
 			<Field
 				placeholder="Логин"
 				name="login"
@@ -34,7 +49,7 @@ const AuthForm = ({ setErrorMsg, setAlertVisible, values, children, setFieldValu
 				type="text"
 				variant="outlined"
 			/>
-			<div>Пароль</div>
+			<div className={styles.fieldLabel}>Пароль</div>
 			<Field
 				placeholder="Пароль"
 				name="password"
@@ -64,43 +79,30 @@ const AuthForm = ({ setErrorMsg, setAlertVisible, values, children, setFieldValu
 				}
 				label="Запомнить пароль"
 			/>
-			<MaterialButton variant="contained" type="submit">
+			<ColorButton disabled={isSubmitting} variant="contained" type="submit">
 				Войти
-			</MaterialButton>
-			<div onClick={() => console.log('forgotPassword')}>Забыли пароль?</div>
+			</ColorButton>
+			<div className={styles.forgotPassword} onClick={() => alert('В настоящее время восстановление пароля недоступно')}>Забыли пароль?</div>
 		</Form>
 	);
 };
 
-export default withFormik({
+export default connect(null, { loginAction: login })(withFormik({
 	mapPropsToValues: props => ({
 		login: props.login || '',
 		password: props.password || '',
-		remember: props.remember || false
+		remember: props.remember || false,
+		loginAction: props.loginAction
 	}),
 	handleSubmit: async (values, { props, setErrors, setSubmitting, resetForm }) => {
-		// const { login, password, remember } = values;
-		// const { history, setErrorMsg, setAlertVisible } = props;
-		// setSubmitting(true);
-		// var formData = new FormData();
-		// formData.append('UserName', login);
-		// formData.append('Password', password);
-		// try {
-		// 	const responce = await sendFormData('auth', formData);
-		// 	authenticate({
-		// 		username: login,
-		// 		token: responce.token,
-		// 		userId: responce.user.userId,
-		// 		persist: remember
-		// 	});
-		// 	Promise.all([props.dispatch.user.checkAuthorized(), props.dispatch.app.init()]).then(() => {
-		// 		history.push('/');
-		// 	});
-		// } catch (error) {
-		// 	setErrorMsg(error.msg || "Не авторизован");
-		// 	setAlertVisible(true);
-		// }
-		// setSubmitting(false);
+		console.log(values)
+		const { login, password, remember, loginAction } = values;
+		const { history, setErrorMsg, setAlertVisible } = props;
+		setSubmitting(true);
+		if (login === 'admin' && password === 'admin') {
+			loginAction({id: 1, login})
+		}
+		setSubmitting(false);
 	},
 	validationSchema: AuthSchema
-})(AuthForm);
+})(AuthForm));

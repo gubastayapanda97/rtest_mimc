@@ -1,0 +1,20 @@
+.container {
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+	display: flex;
+    flex-direction: column;
+}
+
+.fieldLabel {
+	margin: 10px 0 5px 10px;
+}
+
+.forgotPassword {
+	color: #b42dcb;
+	margin: 10px 0;
+}
