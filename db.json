@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "email": "admin@test.test",
-      "password": "$2a$10$/fsxkMC2tEQrSUa/kAca0eWYyUAXpcATnFdxJuZCbU0hKUg145Xs2",
+      "email": "admin@email.test",
+      "password": "$2a$10$IH3VcYvlJxdSW1gy/2RvsOyX5tdoIKPwexY.O3rMjQO5dd9tjDT0.",
       "firstname": "Admin",
       "lastname": "Admin",
       "age": 32,
-      "id": 1
+      "id": 2
     }
   ],
   "projects": [
