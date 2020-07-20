@@ -5,3 +5,9 @@
 .pageTitle {
 	color: #503e70;
 }
+
+@media screen and (max-width: 420px) {
+	.container {
+		padding: 0 15px;
+	}
+}

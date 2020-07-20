@@ -11,15 +11,16 @@ import styles from './styles.module.scss';
 
 const MenuItem = ({ item, location }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
+	console.log('location.pathname === item.link', location.pathname === item.link)
 	return (
 		<>
 			{item.link 
-				? <NavLink to={item.link}>
+				? <NavLink className={`${styles.link} + ${location.pathname === item.link ? styles.isOpen : null}`} to={item.link}>
 					<BallotIcon />
 					{item.title}
 				</NavLink>
-				: <div>
-					<div className={styles.link} onClick={() => setIsExpanded(!isExpanded)}>
+				: <>
+					<div className={styles.expandedLink} onClick={() => setIsExpanded(!isExpanded)}>
 						<div className={styles.linkTitle}>
 							<BallotIcon />
 							{item.title}
@@ -28,16 +29,14 @@ const MenuItem = ({ item, location }) => {
 					</div>
 					{isExpanded 
 						? item.subItems.map((el, index) => (
-							<div key={index} className={styles.subLink}>
-								<NavLink to={el.link}>
-									<BallotIcon />
-									{el.title}
-								</NavLink>
-							</div>
+							<NavLink key={index} className={`${styles.subLink} + ${location.pathname === el.link ? styles.isOpen : null}`} to={el.link}>
+								<BallotIcon />
+								{el.title}
+							</NavLink>
 						))
 						: null 
 					}
-				</div>
+				</>
 			}
 		</>
 	);

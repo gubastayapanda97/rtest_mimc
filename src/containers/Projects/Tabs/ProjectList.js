@@ -38,7 +38,7 @@ const ProjectList = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
-				<div>СПИСОК ПРОЕКТОВ</div>
+				<div>{"Список проектов".toUpperCase()}</div>
 				<ColorButton onClick={() => setOpenModal(true)}>
 					Добавить проект
 				</ColorButton>

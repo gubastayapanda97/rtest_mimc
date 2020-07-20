@@ -3,7 +3,6 @@
     left: 0;
     height: 100vh;
     background: #34116e;
-    overflow: hidden;
     transition: 0.4s width;
     z-index: 200;
     position: fixed;
@@ -12,7 +11,6 @@
     display: flex;
     flex-direction: column;
     a {
-        margin: 5px 10px;
         color: #ffffff;
         text-decoration: none;
         display: flex;
@@ -22,19 +20,30 @@
 
 .link {
     cursor: pointer;
-    margin: 5px 10px;
+    margin: 5px 0;
     color: #ffffff;
+    border-left: 8px solid #33106d;
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     .linkTitle {
         display: flex;
         align-items: center;
     }
 }
+
+.expandedLink {
+    @extend .link;
+    justify-content: space-between;
+}
+.isOpen {
+    border-left: 8px solid #b42dcc;
+    background: #1a0346;
+}
 .subLink {
     margin: 0 0 0 20px;
+    border-left: 8px solid #33106d;
 }
 
 .menubar {

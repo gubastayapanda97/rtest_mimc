@@ -1,11 +1,10 @@
 .layout__container {
-	position: relative;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	left: 200px;
-	width: calc(100vw - 200px) !important;
-	overflow-x: hidden;
+	width: calc(100% - 200px);
+	margin: 0 0 0 200px;
 }
 
 .header {
@@ -19,6 +18,7 @@
 @media screen and (max-width: 420px) {
 	.layout__container {
 		left: 0;
-		width: 100vw !important;
+		width: 100%;
+		margin: 0;
 	}
 }

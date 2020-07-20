@@ -1,14 +1,43 @@
 {
   "users": [
     {
-      "email": "Admin@email.test",
-      "password": "$2a$10$0Uq/2G97dlD4SiaEdW8A4eraFDNcgCysvubupGZQVbFcue7s9V8pO",
+      "email": "admin@test.test",
+      "password": "$2a$10$/fsxkMC2tEQrSUa/kAca0eWYyUAXpcATnFdxJuZCbU0hKUg145Xs2",
       "firstname": "Admin",
       "lastname": "Admin",
+      "age": 32,
       "id": 1
     }
   ],
   "projects": [
+    {
+      "title": "Терапевтический корпус",
+      "date_start": "2019-04-08",
+      "date_finish": "2021-01-31",
+      "leader": "Денис Конев",
+      "admin": "Просолим Лимитед"
+    },
+    {
+      "title": "Терапевтический корпус",
+      "date_start": "2019-04-08",
+      "date_finish": "2021-01-31",
+      "leader": "Денис Конев",
+      "admin": "Просолим Лимитед"
+    },
+    {
+      "title": "Терапевтический корпус",
+      "date_start": "2019-04-08",
+      "date_finish": "2021-01-31",
+      "leader": "Денис Конев",
+      "admin": "Просолим Лимитед"
+    },
+    {
+      "title": "Терапевтический корпус",
+      "date_start": "2019-04-08",
+      "date_finish": "2021-01-31",
+      "leader": "Денис Конев",
+      "admin": "Просолим Лимитед"
+    },
     {
       "title": "Терапевтический корпус",
       "date_start": "2019-04-08",
