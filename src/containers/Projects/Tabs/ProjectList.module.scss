@@ -1,0 +1,15 @@
+.container {
+	margin: 10px 0;
+}
+
+.header {
+	display: flex;
+    align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.projectListContainer {
+	display: flex;
+    flex-wrap: wrap;
+}

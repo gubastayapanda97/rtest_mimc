@@ -5,7 +5,7 @@ import { Tasks, Auth, Opportunities1, Opportunities2, Opportunities3, Projects, 
 import { MainMenu } from './';
 
 const Router = ({ authStatus }) => {
-	const defaultPath = authStatus ? '/tasks' : '/auth';
+	const defaultPath = authStatus ? '/projects' : '/auth';
 	return (
 		<BrowserRouter>
 			<MainMenu />

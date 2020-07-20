@@ -8,26 +8,13 @@
       "id": 1
     }
   ],
-  "posts": [
+  "projects": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Терапевтический корпус",
+      "date_start": "2019-04-08",
+      "date_finish": "2021-01-31",
+      "leader": "Денис Конев",
+      "admin": "Просолим Лимитед"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 2,
-      "body": "some comment1121",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -1,0 +1,32 @@
+.container {
+	margin: 20px 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    width: fit-content;
+    max-width: 350px;
+}
+
+.projectImg {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.projectInfoContainer {
+    padding: 10px;
+}
+
+.projectTitle {
+    font-weight: 500;
+}
+
+.infoItem {
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
+}
+
+.infoImg {
+	width: 20px;
+    height: 20px;
+    margin: 0 8px 0 0;
+}
