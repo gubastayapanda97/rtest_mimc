@@ -27,6 +27,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    &:hover {
+        background: #b42dcc
+    }
     .linkTitle {
         display: flex;
         align-items: center;
@@ -37,13 +40,16 @@
     @extend .link;
     justify-content: space-between;
 }
-.isOpen {
-    border-left: 8px solid #b42dcc;
-    background: #1a0346;
-}
 .subLink {
     margin: 0 0 0 20px;
     border-left: 8px solid #33106d;
+    &:hover {
+        background: #b42dcc
+    }
+}
+.isOpen {
+    border-left: 8px solid #b42dcc;
+    background: #1a0346;
 }
 
 .menubar {
@@ -108,6 +114,9 @@
     .link {
         color: #ffffff;
         margin: 0;
+        &:hover {
+            background: inherit
+        }
     }
 }
 

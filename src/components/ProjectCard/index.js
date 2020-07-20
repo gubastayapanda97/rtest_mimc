@@ -8,7 +8,6 @@ import Rouble from '../../assets/images/rouble.png';
 import styles from './styles.module.scss';
 
 const ProjectCard = ({ project }) => {
-	console.log(project)
 	return (
 		<div className={styles.container}>
 			<img className={styles.projectImg} src={ProjectImage} alt={project.title}/>

@@ -11,7 +11,6 @@ import styles from './styles.module.scss';
 
 const MenuItem = ({ item, location }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
-	console.log('location.pathname === item.link', location.pathname === item.link)
 	return (
 		<>
 			{item.link 
