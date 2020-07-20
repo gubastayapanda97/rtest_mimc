@@ -18,20 +18,112 @@
         display: flex;
         align-items: center;
     }
-    .link {
-        cursor: pointer;
-        margin: 5px 10px;
-        color: #ffffff;
-        text-decoration: none;
+}
+
+.link {
+    cursor: pointer;
+    margin: 5px 10px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .linkTitle {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        .linkTitle {
-            display: flex;
-            align-items: center;
-        }
     }
-    .subLink {
-        margin: 0 0 0 20px;
+}
+.subLink {
+    margin: 0 0 0 20px;
+}
+
+.menubar {
+    display: none;
+}
+.menubar span {
+    display: inline-block;
+    position: absolute;
+    left: 30px;
+    height: 3px;
+    width: 30px;
+    background: #34116e;
+    transform: translateX(-50%);
+    font-weight: 300;
+    font-size: 2em;
+    line-height: 60px;
+}
+
+.hambmenu span:first-child {
+    top: 10px;
+}
+.hambmenu span:nth-child(2),
+.hambmenu span:nth-child(3) {
+    top: 20px;
+}
+.hambmenu span:nth-child(4) {
+    top: 30px;
+}
+.hambmenu.isopen span:first-child {
+    top: 18px;
+    width: 0;
+    left: 0%;
+    opacity: 0;
+}
+.hambmenu.isopen span:nth-child(2) {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.hambmenu.isopen span:nth-child(3) {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+.hambmenu.isopen span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 0;
+    opacity: 0;
+}
+
+@media screen and (max-width: 420px) {
+    .menubar {
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        z-index: 200;
     }
+    .menu {
+        display: none;
+    }
+    .menubar span {
+        display: inline-block;
+        font-size: 1.2em;
+    }
+    .link {
+        color: #ffffff;
+        margin: 0;
+    }
+}
+
+
+.expandMenu {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    height: auto;
+    width: 210px;
+    display: none;
+    background-color: #fff;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index: 1;
+}
+.expandMenu a {
+    color: #ffffff
+}
+.expandMenu.isopen {
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 10px;
+    background: #34116e;
 }

@@ -14,3 +14,11 @@
 	justify-content: flex-end;
 	padding: 10px;
 }
+
+
+@media screen and (max-width: 420px) {
+	.layout__container {
+		left: 0;
+		width: 100vw !important;
+	}
+}

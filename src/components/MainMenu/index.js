@@ -10,7 +10,6 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import styles from './styles.module.scss';
 
 const MenuItem = ({ item, location }) => {
-	const isActive = location.pathname === item.link;
 	const [isExpanded, setIsExpanded] = useState(false);
 	return (
 		<>
@@ -45,11 +44,28 @@ const MenuItem = ({ item, location }) => {
 };
 
 const MainMenu = ({ authStatus, location }) => {
+	const [isOpen, setIsOpen] = useState(false)
+	
 	return (
 		authStatus 
-		? <div className={styles.menu}>
+		? <>
+			<nav className={styles.menu}>
+					{MenuItemsList.map((el, index) => <MenuItem key={index} item={el} location={location} />)}
+			</nav> 
+			
+			<div className={styles.menubar}>
+				<div className={`${styles.hambmenu} + ${isOpen ? styles.isopen : null}`} onClick={()=>setIsOpen(isOpen=>!isOpen)}>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			
+            <nav className={`${styles.expandMenu} + ${isOpen ? styles.isopen : null}`}>
 				{MenuItemsList.map((el, index) => <MenuItem key={index} item={el} location={location} />)}
-		</div> 
+			</nav> 
+		</>
 		: null
 	);
 };
